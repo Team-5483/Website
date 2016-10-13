@@ -1,16 +1,20 @@
 from django.http import HttpResponse
-from django.template import loader
+from django.http import Http404
+from django.shortcuts import render
 from .models import Album
-
 
 def index(request):
     all_albums = Album.objects.all()
-    template = loader.get_template('urmom/index.html')
     context = {
         'all_albums': all_albums
     }
-    return HttpResponse(template.render(context, request))
+    return render(request, "urmom/index.html", context)
 
 
 def detail(request, album_id):
-    return HttpResponse("<h1> Album id : " + str(album_id) + "</h1>")
+    try:
+        album = Album.objects.get(pk=album_id)
+    except Album.DoesNotExist:
+        raise Http404("THERE ARE NO THINGS HERE")
+
+    return render(request, "urmom/detail.html", {'album': album})
