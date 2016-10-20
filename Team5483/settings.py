@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'Home.apps.HomeConfig',
     'urmom.apps.UrmomConfig',
     'django.contrib.admin',
     'django.contrib.auth',
