@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'Home.apps.HomeConfig',
+    'Inventory.apps.InventoryConfig',
     'urmom.apps.UrmomConfig',
     'django.contrib.admin',
     'django.contrib.auth',
