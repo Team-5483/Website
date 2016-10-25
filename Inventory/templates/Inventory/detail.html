@@ -5,6 +5,11 @@
 <h2>measurement : {{item_measurement}}</h2>
 <h2>unit price : {{item_unit_price}}</h2>
 <h2>total price : {{item_total_price}}</h2>
+   <form method="POST" name = {{item.item_name}}>
+        {% csrf_token %}
+        <input type="text" name="textfield">
+        <button type="submit">Change Item Name</button>
+        </form>
 
 
 

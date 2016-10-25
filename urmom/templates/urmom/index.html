@@ -1,5 +1,0 @@
-<ul>
-    {% for album in all_albums  %}
-    <li><a href="{% url 'urmom:detail' album.id %}">{{ album.album_title }}</a></li>
-    {% endfor  %}
-</ul>
