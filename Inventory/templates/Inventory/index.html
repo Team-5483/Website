@@ -3,14 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Urmom</title>
-    <h1>{{test}}</h1>
     {% for item in all_items %}
         <li><a href="{% url 'Inventory:detail' item.id %}">{{ item.item_name }}</a></li>
-
-
     {% endfor %}
-
-
 </head>
 <body>
 

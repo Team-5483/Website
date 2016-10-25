@@ -1,15 +1,17 @@
 <h1>{{item.item_name}}</h1>
-<h2>reference : {{item_reference}}</h2>
-<h2>source : {{item_source}}</h2>
-<h2>quantity : {{item_quantity}}</h2>
-<h2>measurement : {{item_measurement}}</h2>
-<h2>unit price : {{item_unit_price}}</h2>
-<h2>total price : {{item_total_price}}</h2>
    <form method="POST" name = {{item.item_name}}>
-        {% csrf_token %}
-        <input type="text" name="textfield">
-        <button type="submit">Change Item Name</button>
-        </form>
+       {% csrf_token %}
+       <input type="text" name="item_name">
+
+       <h2>reference : {{item.item_reference}} <input type="text" name="item_reference"></h2>
+       <h2>source : {{item.item_source}} <input type="text" name="item_source"></h2>
+       <h2>quantity : {{item.item_quantity}}<input type="number" name="item_quantity"></h2>
+       <h2>measurement : {{item.item_measurement}}<input type="text" name="item_measurement"></h2>
+       <h2>unit price : {{item.item_unit_price}}<input type="number" name="item_unit_price"></h2>
+       <h2>total price : {{item.item_total_price}}</h2>
+       <button type="submit">Save</button>
+
+   </form>
 
 
 

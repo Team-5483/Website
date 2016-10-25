@@ -13,11 +13,13 @@ def index(request):
 
 
 def detail(request, item_id):
-    if request.method == 'POST':
-        search_id = request.POST.get('textfield', None)
-        if search_id is not None:
-            user = Item.objects.get(id=item_id)
-            user.item_name = search_id
-            user.save()
     item = get_object_or_404(Item, pk=item_id)
+    if request.method == 'POST':
+        for name in item.item_field_names:
+            request_text = request.POST.get(name, None)
+            if request_text is not None and request_text is not '':
+                setattr(item, name, request_text)
+                item.save()
+
     return render(request, "Inventory/detail.html", {'item': item})
+

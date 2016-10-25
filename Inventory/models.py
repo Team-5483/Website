@@ -6,12 +6,13 @@ class Item(models.Model):
     item_name = models.CharField(max_length=50)
     item_reference = models.CharField(max_length=50)
     item_source = models.CharField(max_length=50)
-    item_quantity = models.IntegerField(max_length=50)
+    item_quantity = models.CharField(max_length=50)
     item_measurement = models.CharField(max_length=50)
-    item_unit_price = models.IntegerField(max_length=50)
-    item_total_price = models.IntegerField(max_length=50)
+    item_unit_price = models.CharField(max_length=50)
+    item_total_price = models.FloatField(max_length=50)
+    item_field_names = ['item_name', 'item_reference', 'item_source', 'item_quantity', 'item_measurement',
+                        'item_unit_price', 'item_total_price']
 
     def save(self, *args, **kwargs):
-       # if(self.item_quantity != None & self.item_unit_price != None) :
-        self.item_total_price = self.item_quantity * self.item_unit_price
+        self.item_total_price = float(self.item_quantity) * float(self.item_unit_price)
         super(Item, self).save(*args, **kwargs)
