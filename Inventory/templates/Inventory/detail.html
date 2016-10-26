@@ -1,7 +1,18 @@
 <h1>{{item.item_name}}</h1>
+<h2>{{item.item_category}}</h2>
+
    <form method="POST" name = {{item.item_name}}>
        {% csrf_token %}
        <input type="text" name="item_name">
+
+       <select name="category">
+           <option value="{{ item.item_category }}">{{ item.item_category }}</option>
+         {% for category in item.item_categories %}
+          {%if category != item.item_category%}<option value="{{ category }}">{{ category }}</option>{%endif%}
+
+          {% endfor %}
+        </select>
+
 
        <h2>reference : {{item.item_reference}} <input type="text" name="item_reference"></h2>
        <h2>source : {{item.item_source}} <input type="text" name="item_source"></h2>
@@ -12,7 +23,6 @@
        <button type="submit">Save</button>
 
    </form>
-
 
 
 
