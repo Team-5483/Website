@@ -24,7 +24,7 @@ def detail(request, item_id):
             request_text = request.POST.get(name, None)
             if request_text is not None and request_text is not '':
                 setattr(item, name, request_text)
-                item.save()
+    item.save()
 
     return render(request, "Inventory/detail.html", {'item': item})
 
