@@ -3,16 +3,17 @@
 <head>
     <meta charset="UTF-8">
 
-    <title>Inventory</title>
+    <title>Team 5483 | Inventory</title>
 
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    {% load static %}
-    <link href="{%static "css/example.jpg" %}" rel="stylesheet" type="text/css">
 
-    <title>Urmom</title>
-    {% for item in all_items %}
-        <li><a href="{% url 'Inventory:detail' item.id %}">{{ item.item_name }}</a></li>
-    {% endfor %}
+    <style>
+        .navbar {
+            -webkit-border-radius: 0;
+            -moz-border-radius: 0;
+            border-radius: 0;
+        }
+    </style>
 
 </head>
 
@@ -57,11 +58,32 @@
         </div><!-- /.container-fluid -->
     </nav>
 
-
-    {% for item in all_items %}
-    <li><a href="{% url 'Inventory:detail' item.id %}">{{ item.item_name }}</a></li>
-    {% endfor %}
-
+     <div class="container">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                  <th>Name</th>
+                  <th>Category</th>
+                  <th>Source</th>
+                  <th>Measurements</th>
+                  <th>$/Unit</th>
+                  <th>Amount</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for item in all_items %}
+                  <tr>
+                      <td><a href="{% url 'Inventory:detail' item.id %}">{{item.item_name}}</a></td>
+                      <td>None</td>
+                      <td>{{item.item_source}}</td>
+                      <td>{{item.item_measurement}}</td>
+                      <td>{{item.item_unit_price}}$</td>
+                      <td>{{item.item_quantity}}</td>
+                  </tr>
+                {% endfor %}
+            </tbody>
+          </table>
+     </div>
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
