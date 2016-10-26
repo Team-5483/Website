@@ -2,11 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+
     <title>Inventory</title>
 
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     {% load static %}
     <link href="{%static "css/example.jpg" %}" rel="stylesheet" type="text/css">
+
+    <title>Urmom</title>
+    {% for item in all_items %}
+        <li><a href="{% url 'Inventory:detail' item.id %}">{{ item.item_name }}</a></li>
+    {% endfor %}
+
 </head>
 
 <body>
