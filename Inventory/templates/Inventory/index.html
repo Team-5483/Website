@@ -65,7 +65,7 @@
 
      <div class="container">
          <div class="row">
-              <div class="col-md-10">
+              <div class="col-md-12">
                   <table class="table table-striped">
                     <thead>
                       <tr>
@@ -75,6 +75,7 @@
                           <th>Measurements</th>
                           <th>$/Unit</th>
                           <th>Amount</th>
+                          <th></th>
                       </tr>
                     </thead>
                     <tbody>
@@ -86,14 +87,11 @@
                               <td>{{item.item_measurement}}</td>
                               <td>{{item.item_unit_price}}$</td>
                               <td>{{item.item_quantity}}</td>
+                              <td>+/-</td>
                           </tr>
                         {% endfor %}
                     </tbody>
                   </table>
-              </div>
-
-              <div class="col-md-2">
-                  + -
               </div>
          </div>
      </div>
