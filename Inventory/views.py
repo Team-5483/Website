@@ -1,15 +1,36 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, HttpResponseRedirect
+from django.core.urlresolvers import reverse
 from .models import Item
 
 from django import forms
 
-# Create your views here.
+
 def index(request):
+    test = ''
     all_items = Item.objects.all()
+    if request.method == 'POST':
+        action = request.POST.get('AddRemove')
+        if 'additem' in request.POST:
+            return HttpResponseRedirect('/Inventory/additem')
+        else:
+            for item in all_items:
+                if 'removeitem/' + str(item.id) in request.POST:
+                    return HttpResponseRedirect('/Inventory/' + str(item.id) + '/removeitem')
 
-    context = {'all_items': all_items}
+    return render(request, "Inventory/index.html", {'all_items': all_items})
 
-    return render(request, "Inventory/index.html", context)
+
+def additem(request):
+    newitem = Item()
+    newitem.item_name = 'New Item'
+    newitem.save()
+    return HttpResponseRedirect('/Inventory/')
+
+
+def removeitem(request, item_id):
+    Item.objects.get(id=item_id).delete()
+    return HttpResponseRedirect('/Inventory/')
+
 
 
 def detail(request, item_id):

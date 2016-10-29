@@ -77,6 +77,8 @@
                           <th>Amount</th>
                       </tr>
                     </thead>
+                      <form method="POST" name = {{item.item_name}}>
+                    {% csrf_token %}
                     <tbody>
                         {% for item in all_items %}
                           <tr>
@@ -86,6 +88,8 @@
                               <td>{{item.item_measurement}}</td>
                               <td>{{item.item_unit_price}}$</td>
                               <td>{{item.item_quantity}}</td>
+                              <td><input type="submit" value = "-" name = "removeitem/{{ item.id }}"></input></td>
+
                           </tr>
                         {% endfor %}
                     </tbody>
@@ -93,9 +97,11 @@
               </div>
 
               <div class="col-md-2">
-                  + -
+                  <input type="submit" value = "+" name = "additem"></input>
+
               </div>
          </div>
+         </form>
      </div>
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
