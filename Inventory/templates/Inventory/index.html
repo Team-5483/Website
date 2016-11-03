@@ -83,12 +83,12 @@
                         {% for item in all_items %}
                           <tr>
                               <td><a href="{% url 'Inventory:detail' item.id %}">{{item.item_name}}</a></td>
-                              <td>None</td>
+                              <td>{{item.item_category}}</td>
                               <td>{{item.item_source}}</td>
                               <td>{{item.item_measurement}}</td>
                               <td>{{item.item_unit_price}}$</td>
                               <td>{{item.item_quantity}}</td>
-                              <td><input type="submit" value = "-" name = "removeitem/{{ item.id }}"></input></td>
+                              <td><input type="submit" value = "-" name = "removeitem/{{ item.id }}"></td>
 
                           </tr>
                         {% endfor %}
@@ -97,7 +97,7 @@
               </div>
 
               <div class="col-md-2">
-                  <input type="submit" value = "+" name = "additem"></input>
+                  <input type="submit" value = "+" name = "additem">
 
               </div>
          </div>
