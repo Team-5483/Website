@@ -65,7 +65,7 @@
 
      <div class="container">
          <div class="row">
-              <div class="col-md-10">
+              <div class="col-md-12">
                   <table class="table table-striped">
                     <thead>
                       <tr>
@@ -75,6 +75,7 @@
                           <th>Measurements</th>
                           <th>$/Unit</th>
                           <th>Amount</th>
+                          <th></th>
                       </tr>
                     </thead>
                       <form method="POST" name = {{item.item_name}}>
@@ -94,13 +95,11 @@
                         {% endfor %}
                     </tbody>
                   </table>
-              </div>
 
               <div class="col-md-2">
                   <input type="submit" value = "+" name = "additem">
 
               </div>
-         </div>
          </form>
      </div>
 

@@ -1,25 +1,90 @@
-<h1>{{item.item_name}}</h1>
+<html>
+  <head>
+    <meta charset="UTF-8">
 
-   <form method="POST" name = {{item.item_name}}>
-       {% csrf_token %}
-       <input type="text" name="item_name">
+    <title>Team 5483 | {{item.item_name}}</title>
 
-       <select name="category">
-           <option value="{{ item.item_category }}">{{ item.item_category }}</option>
-         {% for category in item.item_categories %}
-          {%if category != item.item_category%}<option value="{{ category }}">{{ category }}</option>{%endif%}
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 
-          {% endfor %}
-        </select>
-<h2>{{item.item_category}}</h2>
-       <h2>reference : {{item.item_reference}} <input type="text" name="item_reference"></h2>
-       <h2>source : {{item.item_source}} <input type="text" name="item_source"></h2>
-       <h2>quantity : {{item.item_quantity}}<input type="number" name="item_quantity"></h2>
-       <h2>measurement : {{item.item_measurement}}<input type="text" name="item_measurement"></h2>
-       <h2>unit price : {{item.item_unit_price}}<input type="number" name="item_unit_price"></h2>
-       <h2>total price : {{item.item_total_price}}</h2>
-       <button type="submit">Save</button>
-   </form>
+    <style>
+        body {
+            background: url("http://www.designbolts.com/wp-content/uploads/2012/12/White-Paper-Seamless-Pattern-For-Website-Background.jpg");
+        }
+
+        .navbar {
+            -webkit-border-radius: 0;
+            -moz-border-radius: 0;
+            border-radius: 0;
+        }
+
+        .item-attribs {
+          margin-left: 50px;
+        }
+
+        .item-submit-button {
+          margin-top: 15px;
+        }
 
 
+    </style>
 
+  </head>
+
+  <body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../">Team 5483 | Inventory</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">Link</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false">Dropdown <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Separated link</a></li>
+                    </ul>
+                </li>
+
+                <form class="navbar-form navbar-left">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                    </div>
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </form>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+
+    <div class="container">
+      <form method="POST" name={{item.item_name}}>
+          {% csrf_token %}
+          <h2>{{item.item_name}}</h2>
+          <input type="text" name="item_name" placeholder="Item Name" />
+          <div class="item-attribs">
+            <h3>Source: {{item.item_source}}</h3> <input type="text" name="item_source" placeholder="Source" />
+            <h3>Quantity: {{item.item_quantity}}</h3> <input type="number" name="item_quantity" placeholder="Quantity" />
+            <h3>Measurements: {{item.item_measurement}}</h3> <input type="text" name="item_measurement" placeholder="Measurements" />
+            <h3>Price/Unit {{item.item_unit_price}}$</h3> <input type="number" name="item_unit_price" placeholder="Price per Unit" />
+            <div class="item-submit-button"> <button type="submit">Save</button> </div>
+          </div>
+      </form>
+    </div>
+  </body>
+
+</html>
