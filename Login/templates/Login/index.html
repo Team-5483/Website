@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form method="POST" name={{item.item_name}}>
+          {% csrf_token %}
+          <input type="password" name="input_password" value="{{password}}" />
+            {% if save_password is False%}
+          <input type="checkbox" name="save_password" value="password_save">Save Password<br>
+        {% else %}
+                  <input type="checkbox" name="save_password" value="password_save" checked>Save Password<br>
+
+        {%endif%}
+      </form>
+
+</body>
+</html>

@@ -2,10 +2,14 @@ from django.shortcuts import render, get_object_or_404, HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from .models import Item
 from django.db.models import Q
+from django.http import HttpResponse
+
 from django import forms
 
 
 def index(request):
+    if login(request) is not None:
+        return login(request)
     all_items = Item.objects.all()
     if request.method == 'POST':
         if 'additem' in request.POST:
@@ -41,7 +45,8 @@ def detail(request, item_id):
 def search(request, search_query):
     return render(request, "Inventory/index.html",
                   {'all_items': Item.objects.filter(Q(item_name__contains=search_query) | Q(item_category=search_query)
-                                                    | Q(item_reference=search_query) | Q(item_source=search_query))})
+                                                    | Q(item_reference__contains=search_query)
+                                                    | Q(item_source__contains=search_query))})
 
 
 def additem(request):
@@ -55,5 +60,18 @@ def removeitem(request, item_id):
     Item.objects.get(id=item_id).delete()
     return HttpResponseRedirect('/Inventory/')
 
+
+def login(request):
+    with open('Login/password', 'r') as f:
+        file_password = str(f.readlines())
+
+
+    if 'password' in request.session:
+        if file_password == "['"+request.session['password']+"']":
+            return None
+        else:
+            return HttpResponseRedirect('/Inventory/login')
+    else:
+        return HttpResponseRedirect('/Inventory/login')
 
 

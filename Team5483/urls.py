@@ -22,5 +22,7 @@ urlpatterns = [
     url(r'^', include('Home.urls')),
     url(r'^inventory/', include('Inventory.urls')),
     url(r'^Inventory/', include('Inventory.urls')),
+    url(r'^inventory/login', include('Login.urls')),
+    url(r'^Inventory/login', include('Login.urls')),
 
 ]
