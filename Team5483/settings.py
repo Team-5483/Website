@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'Home.apps.HomeConfig',
     'Inventory.apps.InventoryConfig',
+    'ExcelParser.apps.ExcelparserConfig',
     'Login.apps.LoginConfig',
     'django.contrib.admin',
     'django.contrib.auth',

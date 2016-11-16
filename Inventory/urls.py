@@ -15,4 +15,5 @@ urlpatterns = [
     url(r'^(?P<item_id>[0-9]+)/$', views.detail, name='detail'),
     url(r'^(?P<item_id>[0-9]+)/removeitem', views.removeitem, name='removeitem'),
 
+
 ]

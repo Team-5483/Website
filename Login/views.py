@@ -1,5 +1,4 @@
 from django.shortcuts import render, HttpResponseRedirect
-from django.http import HttpResponse
 from Inventory import views
 # Create your views here.
 

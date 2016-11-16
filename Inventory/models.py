@@ -15,6 +15,8 @@ class Item(models.Model):
     item_field_names = ['item_name', 'item_reference', 'item_source', 'item_quantity', 'item_measurement',
                         'item_unit_price', 'item_total_price']
 
-    def save(self, *args, **kwargs):
-        self.item_total_price = float(self.item_quantity) * float(self.item_unit_price)
-        super(Item, self).save(*args, **kwargs)
+    #def save(self, *args, **kwargs):
+
+
+        #self.item_total_price = float(self.item_quantity) * float(self.item_unit_price)
+        #super(Item, self).save(*args, **kwargs)
