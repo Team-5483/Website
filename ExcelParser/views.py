@@ -1,7 +1,5 @@
 from django.shortcuts import render
 from openpyxl import load_workbook
-import sqlite3
-from django.http import HttpResponse
 from Inventory.models import Item
 from django.shortcuts import HttpResponseRedirect
 
@@ -20,10 +18,6 @@ def index(request):
                 return HttpResponseRedirect('/Inventory/')
             except FileNotFoundError:
                 file_not_found = 'File Not Found'
-
-
-    #excel = import_excel(request, 'C:/Users/LIam/Documents/GitHub/Website/ExcelParser/test.xlsx')
-    #save(excel[0], excel [1])
 
     return render(request, "ExcelParser/index.html", {'file_not_found' : file_not_found})
 

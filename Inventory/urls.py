@@ -12,6 +12,7 @@ urlpatterns = [
     url(r'^password/(?P<password>.+)/$',views.login,name='login'),
 
     url(r'^import/', include('ExcelParser.urls')),
+    url(r'^export/', include('Export.urls')),
 
     url(r'^(?P<item_id>[0-9]+)/$', views.detail, name='detail'),
     url(r'^(?P<item_id>[0-9]+)/removeitem', views.removeitem, name='removeitem'),
