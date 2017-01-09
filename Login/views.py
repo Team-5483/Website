@@ -4,6 +4,8 @@ from Inventory import views
 
 
 def index(request):
+    #if request.session['save_password'] is None:
+    request.session['save_password'] = False
     with open('Login/password', 'r') as f:
         password = str(f.readlines())
     if request.method == 'POST':

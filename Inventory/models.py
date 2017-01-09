@@ -11,7 +11,7 @@ class Item(models.Model):
     item_quantity = models.CharField(max_length=50,default='0')
     item_measurement = models.CharField(max_length=50)
     item_unit_price = models.CharField(max_length=50, default='0')
-    item_total_price = models.FloatField(max_length=50)
+    item_total_price = models.CharField(max_length=50)
     item_field_names = ['item_name', 'item_reference', 'item_source', 'item_quantity', 'item_measurement',
                         'item_unit_price', 'item_total_price']
 
