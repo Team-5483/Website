@@ -55,8 +55,6 @@ def data_entry(nameParam="", categoryParam="", sourceParam="", measurmentParam="
 
 
 def save(items, ws):
-    Item.objects.all().delete()
-
     for i in range(ws.max_row):
         data_entry(items[(i * 8)], items[(i * 8) + 1], items[(i * 8) + 2], items[(i * 8) + 3], items[(i * 8) + 4],
                                     items[(i * 8) + 5], items[(i * 8) + 6], items[(i * 8) + 7])
