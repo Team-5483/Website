@@ -20,6 +20,7 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^', include('Home.urls')),
+
     url(r'^inventory/', include('Inventory.urls')),
     url(r'^Inventory/', include('Inventory.urls')),
 
@@ -28,5 +29,8 @@ urlpatterns = [
 
     url(r'^Inventory/import', include('ExcelParser.urls')),
     url(r'^inventory/import', include('ExcelParser.urls')),
+
+    url(r'^Inventory/export', include('Export.urls')),
+    url(r'^inventory/export', include('Export.urls')),
 
 ]

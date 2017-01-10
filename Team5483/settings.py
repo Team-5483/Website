@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'Home.apps.HomeConfig',
     'Inventory.apps.InventoryConfig',
     'ExcelParser.apps.ExcelparserConfig',
+    'Export.apps.ExportConfig',
     'Login.apps.LoginConfig',
     'django.contrib.admin',
     'django.contrib.auth',
