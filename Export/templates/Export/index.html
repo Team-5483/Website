@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Export</title>
+</head>
+<body>
+    <form method ="POST">
+        {% csrf_token %}
+        <input type="text" name="file_path" placeholder="File Path">
+        {{file_not_found}}
+    </form>
+</body>
+</html>

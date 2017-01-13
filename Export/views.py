@@ -24,9 +24,6 @@ def export_excel(fileName):
     wb = load_workbook(fileName)
     ws = wb.active
 
-    for row in ws.iter_rows(min_row=1, max_col=8, max_row=len(Item.objects)):
+    for row in ws.iter_rows(min_row=1, max_col=8, max_row=Item.objects.get_all):
         for cell in row:
             cell.append(Item.objects.get_all)
-
-
-
